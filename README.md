@@ -9,7 +9,13 @@
 
 `VALUE|'now' [as FORMAT_NAME]`
 
-where `VALUE` can be either an integer (seconds since the epoch) or `YYYY-mm-dd`/`YYYY-mm-dd HH:MM:SS` (ISO date/datetime).
+where `VALUE` can be:
+
+- an integer: seconds since the epoch
+- e.g. `June 8, 2018`
+- e.g. `2013-03-04 12:04:05`
+- e.g. `2013/3/4`
+- etc.
 
 For example,
 
