@@ -3,7 +3,9 @@
 ## Installation
 
 1. Clone this repository.
-2. Double-click `Convert Date.alfredworkflow`.
+2. (Preferably in a virtualenv) `pip install -r requirements.txt && pip install .`
+3. Double-click `Convert Date.alfredworkflow`.
+4. Configure the workflow by filling in the output of `which python3` (in the above virtualenv).
 
 ## Query format
 
