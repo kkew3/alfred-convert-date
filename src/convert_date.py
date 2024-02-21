@@ -17,9 +17,9 @@ def strftime(datetime: dt.datetime, fmt: str) -> str:
 def prepare_outputs(datetime: dt.datetime) -> ty.Dict[str, str]:
     """All available date formats and values given datetime object."""
     name_to_fmt = [
-        ('A, B d, YYYY at II:MM:SS p', '%A, %B %-d, %Y at %I:%M:%S %p'),
         ('ISO date', '%Y-%m-%d'),
         ('ISO datetime', '%Y-%m-%d %H:%M:%S'),
+        ('A, B d, YYYY at II:MM:SS p', '%A, %B %-d, %Y at %I:%M:%S %p'),
         ('YYYY-mm-dd', '%Y-%m-%d'),
         ('YYYY-mm-dd HH:MM:SS', '%Y-%m-%d %H:%M:%S'),
         ('YYYY/mm/dd', '%Y/%m/%d'),
