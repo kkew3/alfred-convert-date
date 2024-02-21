@@ -7,6 +7,8 @@ import typing as ty
 import re
 import subprocess
 
+from dateutil.parser import parse, ParserError
+
 
 def strftime(datetime: dt.datetime, fmt: str) -> str:
     """See: https://stackoverflow.com/a/71427544/7881370"""
@@ -50,22 +52,10 @@ def parse_query(query: str) -> ty.Tuple[dt.datetime, str]:
     except (ValueError, TypeError):
         pass
 
-    other_fmts_to_try = [
-        '%B %d, %Y',
-        '%B %d %Y',
-        '%b %d, %Y',
-        '%b %d %Y',
-        '%Y/%m/%d',
-    ]
-    for fmt in other_fmts_to_try:
-        try:
-            return dt.datetime.strptime(query, fmt), expected_target_format
-        except ValueError:
-            pass
-
     try:
-        return dt.datetime.fromisoformat(query), expected_target_format
-    except ValueError:
+        parsed_datetime = parse(query)
+        return parsed_datetime, expected_target_format
+    except ParserError:
         pass
 
     if query == 'now':
