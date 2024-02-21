@@ -52,14 +52,14 @@ def parse_query(query: str) -> ty.Tuple[dt.datetime, str]:
     except (ValueError, TypeError):
         pass
 
+    if query == 'now':
+        return dt.datetime.now(), expected_target_format
+
     try:
         parsed_datetime = parse(query)
         return parsed_datetime, expected_target_format
     except ParserError:
         pass
-
-    if query == 'now':
-        return dt.datetime.now(), expected_target_format
 
     raise NotImplementedError('Failed to parse the input as date/datetime')
 
